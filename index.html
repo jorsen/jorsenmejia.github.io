@@ -2,59 +2,136 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Developer Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jorsen Mejia - Web Developer</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-    <header>
-        <nav>
-            <h1>Jorsen Mejia</h1>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <h2>Hello, I'm Jorsen 👋</h2>
-        <p>A passionate Web Developer building modern and responsive websites.</p>
-    </section>
-
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>I’m a developer who loves building for the web. I focus on performance, clean code, and accessibility.</p>
-    </section>
-
-    <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="projects-container">
-            <div class="project-card">
-                <h3>Project One</h3>
-                <p>Description of your awesome project here.</p>
-            </div>
-            <div class="project-card">
-                <h3>Project Two</h3>
-                <p>Description of another great project here.</p>
-            </div>
+    <!-- Hero Section -->
+    <section id="hero" class="fade-in">
+        <h1>Jorsen Mejia</h1>
+        <h2>Fullstack WordPress Developer</h2>
+        <p>Empowering brands through tailored web experiences</p>
+        <div class="cta-buttons">
+            <button onclick="scrollToSection('contact')">📨 Contact Me</button>
+            <button onclick="scrollToSection('projects')">📁 View Projects</button>
         </div>
     </section>
 
-    <section id="contact" class="section">
+    <!-- About Section -->
+    <section id="about" class="slide-up">
+        <h2>About Me</h2>
+        <p>I’m a passionate WordPress Web Developer based in Caloocan, Philippines with over 3 years of professional experience. I specialize in building high-performance, scalable websites using HTML, CSS, JavaScript, and WordPress. I take pride in delivering
+            clean, responsive, and user-focused digital solutions.</p>
+        <ul>
+            <li>HTML, CSS, JavaScript, PHP</li>
+            <li>WordPress, Webflow</li>
+            <li>Elementor, Divi, Oxygen</li>
+            <li>SEO, UX/UI, Page Speed Optimization</li>
+        </ul>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="fade-in">
+        <h2>Experience</h2>
+        <div class="job">
+            <h3>🔹 Website Developer – Linkage Web Development</h3>
+            <p>Full-time | Jan 2021 – Present</p>
+            <ul>
+                <li>Built and maintained WordPress websites using custom themes and page builders</li>
+                <li>Worked with clients on front-end enhancements and performance optimization</li>
+                <li>Collaborated with a team to launch 10+ web projects</li>
+            </ul>
+        </div>
+        <div class="job">
+            <h3>🔹 Website Developer (Contract) – Linkage Web Development</h3>
+            <p>Mar 2022 – Oct 2023</p>
+            <ul>
+                <li>Supported various WordPress projects with plugin customization</li>
+                <li>Contributed to site migrations and maintenance tasks</li>
+            </ul>
+        </div>
+        <div class="job">
+            <h3>🔹 Web Developer (Intern) – One View Solutions PH</h3>
+            <p>Jun 2020 – Sep 2020</p>
+            <ul>
+                <li>Built HTML/CSS-based prototypes</li>
+                <li>Gained practical experience in SEO and web usability</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="slide-up">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>🔹 Habbi</h3>
+            <p>Role: Developer (2022)</p>
+            <p>WordPress-powered site for a health-related brand.</p>
+        </div>
+        <div class="project">
+            <h3>🔹 Abble Health</h3>
+            <p>Role: Developer (2022)</p>
+            <p>Collaborated with Linkage Web Development on a responsive, mobile-first site.</p>
+        </div>
+        <button onclick="scrollToSection('contact')">View More Projects</button>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="fade-in">
+        <h2>Testimonials</h2>
+        <blockquote>“Great mentor.” – Kean Billy Fernandez, Web Developer</blockquote>
+        <blockquote>“Very approachable and had good management skills.” – Ramon Christopher Acono, Support Engineer</blockquote>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="slide-up">
+        <h2>Education & Certifications</h2>
+        <p>🎓 STI College – Bachelor of Science in Information Technology (2018 – 2022)</p>
+        <p>🏅 Most Improving Developer – 2021 (awarded by Archiedzes)</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
         <h2>Contact</h2>
-        <p>Feel free to reach out to me at <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+        <p>Email: [Use contact form below]</p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/jorsenmejia">linkedin.com/in/jorsenmejia</a></p>
+        <form>
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </section>
 
     <footer>
-        <p>© 2025 Jorsen Mejia. All rights reserved.</p>
+        <p>&copy; 2025 Jorsen Mejia. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Simple fade-in / slide-up on scroll animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 
 </html>
