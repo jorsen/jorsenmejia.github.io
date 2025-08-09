@@ -1,176 +1,307 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="scroll-smooth">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jorsen Mejia - Web Developer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Jorsen Mejia — Portfolio</title>
+
+    <!-- font (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+    <!-- Tailwind config (use class-based dark mode) -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#14b8a6'
+                    }
+                }
+            }
+        }
+    </script>
+
+
+    <style>
+         :root {
+            --ui-spacing: 1rem;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+        
+        .no-scroll {
+            overflow: hidden;
+            height: 100vh;
+        }
+        /* small helper for reveal animation fallback */
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+        
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
-    <!-- Hero Section -->
-    <section id="hero" class="text-white text-center py-20 px-4 bg-gradient-to-r from-blue-700 to-blue-900">
-        <h1 class="text-4xl font-bold mb-2">Jorsen Mejia</h1>
-        <h2 class="text-2xl mb-4">Fullstack WordPress Developer</h2>
-        <p class="text-lg mb-6">Empowering brands through tailored web experiences</p>
-        <div class="flex justify-center gap-4">
-            <button onclick="scrollToSection('contact')" class="bg-white text-blue-700 px-5 py-2 rounded hover:bg-blue-100 transition">📨 Contact Me</button>
-            <button onclick="scrollToSection('projects')" class="bg-white text-blue-700 px-5 py-2 rounded hover:bg-blue-100 transition">📁 View Projects</button>
-        </div>
-    </section>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
 
-    <!-- About Section -->
-    <section id="about" class="max-w-3xl mx-auto my-16 p-6 bg-white rounded shadow slide-up">
-        <h2 class="text-2xl font-bold mb-4">About Me</h2>
-        <p class="mb-4">I’m a passionate WordPress Web Developer based in Cavite, Philippines with over 7 years of professional experience. I specialize in building high-performance, scalable websites using HTML, CSS, JavaScript, and WordPress. I take pride in delivering
-            clean, responsive, and user-focused digital solutions.</p>
-        <ul class="list-disc pl-6 space-y-1">
-            <li>HTML, CSS, JavaScript, PHP</li>
-            <li>WordPress, Webflow</li>
-            <li>Elementor, Divi, Oxygen</li>
-            <li>SEO, UX/UI, Page Speed Optimization</li>
-        </ul>
-    </section>
+    <!-- DESKTOP SIDEBAR -->
+    <aside id="sidebar" class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex-col justify-between z-40">
+        <div class="p-6">
+            <a href="#hero" class="text-2xl font-bold text-primary">Jorsen Mejia</a>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Fullstack WordPress Developer</p>
 
-    <!-- Experience Section -->
-    <section id="experience" class="max-w-3xl mx-auto my-16 p-6 bg-white rounded shadow fade-in">
-        <h2 class="text-2xl font-bold mb-6">Experience</h2>
-        <div class="mb-6">
-            <h3 class="font-semibold">🔹 Website Developer – Linkage Web Development</h3>
-            <p class="text-sm text-gray-600 mb-2">Full-time | Jan 2021 – Present</p>
-            <ul class="list-disc pl-6 space-y-1">
-                <li>Built and maintained WordPress websites using custom themes and page builders</li>
-                <li>Worked with clients on front-end enhancements and performance optimization</li>
-                <li>Collaborated with a team to launch 10+ web projects</li>
-            </ul>
+            <nav class="mt-10 flex flex-col gap-3">
+                <a href="#about" class="text-sm text-gray-700 dark:text-gray-200 hover:text-primary">About</a>
+                <a href="#projects" class="text-sm text-gray-700 dark:text-gray-200 hover:text-primary">Projects</a>
+                <a href="#experience" class="text-sm text-gray-700 dark:text-gray-200 hover:text-primary">Experience</a>
+                <a href="#testimonials" class="text-sm text-gray-700 dark:text-gray-200 hover:text-primary">Testimonials</a>
+                <a href="#education" class="text-sm text-gray-700 dark:text-gray-200 hover:text-primary">Education</a>
+                <a href="#contact" class="text-sm text-gray-700 dark:text-gray-200 hover:text-primary">Contact</a>
+            </nav>
         </div>
-        <div class="mb-6">
-            <h3 class="font-semibold">🔹 Website Developer (Contract) – Linkage Web Development</h3>
-            <p class="text-sm text-gray-600 mb-2">Mar 2022 – Oct 2023</p>
-            <ul class="list-disc pl-6 space-y-1">
-                <li>Supported various WordPress projects with plugin customization</li>
-                <li>Contributed to site migrations and maintenance tasks</li>
-            </ul>
-        </div>
-        <div>
-            <h3 class="font-semibold">🔹 Web Developer (Intern) – One View Solutions PH</h3>
-            <p class="text-sm text-gray-600 mb-2">Jun 2020 – Sep 2020</p>
-            <ul class="list-disc pl-6 space-y-1">
-                <li>Built HTML/CSS-based prototypes</li>
-                <li>Gained practical experience in SEO and web usability</li>
-            </ul>
-        </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="max-w-3xl mx-auto my-16 p-6 bg-white rounded shadow slide-up">
-        <h2 class="text-2xl font-bold mb-6">Projects</h2>
+        <div class="p-6 border-t border-gray-200 dark:border-gray-800">
+            <button class="theme-toggle w-full flex items-center gap-3 px-3 py-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition" aria-pressed="false">
+      <span class="theme-toggle-icon">🌙</span>
+      <span class="theme-toggle-text">Dark</span>
+    </button>
+        </div>
+    </aside>
 
-        <div class="space-y-6">
-            <div>
-                <h3 class="font-semibold">🔹 Habbi</h3>
-                <p class="text-sm">Role: Developer (2022)</p>
-                <p>WordPress-powered site for a health-related brand.</p>
-            </div>
-            <div>
-                <h3 class="font-semibold">🔹 Abble Health</h3>
-                <p class="text-sm">Role: Developer (2022 - Present)</p>
-                <p>Collaborated with Linkage Web Development on a mobile-first WordPress site.</p>
-            </div>
-            <div>
-                <h3 class="font-semibold">🔹 Htabl</h3>
-                <p class="text-sm">Role: Developer (Dec 2022 – Present)</p>
-            </div>
-            <div>
-                <h3 class="font-semibold">🔹 The DIY Listing</h3>
-                <p class="text-sm">Role: Developer (Nov 2022 – Present)</p>
-            </div>
-            <div>
-                <h3 class="font-semibold">🔹 DLTC Corporation</h3>
-                <p class="text-sm">Role: Developer (Dec 2023 – Jan 2024)</p>
-                <a href="https://dltccorporation.com" class="text-blue-600 hover:underline">View Site</a>
-            </div>
-            <div>
-                <h3 class="font-semibold">🔹 Lachic</h3>
-                <p class="text-sm">Role: Developer (Oct 2022 – Dec 2022)</p>
-            </div>
-            <div>
-                <h3 class="font-semibold">🔹 Rockwells</h3>
-                <p class="text-sm">Role: Developer (Nov 2022 – Dec 2022)</p>
-            </div>
-            <div>
-                <h3 class="font-semibold">🔹 Touché Studio</h3>
-                <p class="text-sm">Role: Developer (Jan 2022 – Feb 2022)</p>
-                <a href="https://touchestudio.com/" class="text-blue-600 hover:underline">touchestudio.com</a>
-            </div>
-            <div>
-                <h3 class="font-semibold">🔹 Custom Dynamic Map</h3>
-                <p class="text-sm">Role: Developer (Sep 2021)</p>
-                <p>Built with Custom Post Type and ACF plugin in WordPress.</p>
-            </div>
-            <div>
-                <h3 class="font-semibold">🔹 Gandu Massage</h3>
-                <p class="text-sm">Role: Developer (Jun 2019 – Jul 2019)</p>
-                <p>Mobile spa booking site. Focused on user convenience and responsive layout.</p>
+    <!-- MOBILE TOPBAR (contains burger & small theme button) -->
+    <header class="md:hidden fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-14">
+            <a href="#hero" class="font-semibold">Jorsen</a>
+            <div class="flex items-center gap-2">
+                <button id="mobileThemeBtn" class="p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
+        <span class="theme-toggle-icon">🌙</span>
+      </button>
+
+                <button id="burgerBtn" aria-expanded="false" class="p-2 rounded bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700">
+        <!-- start as burger -->
+        <span id="burgerIcon" class="text-2xl">☰</span>
+      </button>
             </div>
         </div>
-    </section>
+    </header>
 
+    <!-- MOBILE DRAWER (overlay + sliding panel) -->
+    <div id="mobileDrawer" class="fixed inset-0 z-50 hidden">
+        <div id="mobileOverlay" class="absolute inset-0 bg-black/40" aria-hidden="true"></div>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="max-w-3xl mx-auto my-16 p-6 bg-white rounded shadow fade-in">
-        <h2 class="text-2xl font-bold mb-4">Testimonials</h2>
-        <blockquote class="italic border-l-4 border-blue-600 pl-4 mb-4">“Great mentor.” – Kean Billy Fernandez, Web Developer</blockquote>
-        <blockquote class="italic border-l-4 border-blue-600 pl-4">“Very approachable and had good management skills.” – Ramon Christopher Acono, Support Engineer</blockquote>
-    </section>
+        <aside id="mobilePanel" class="absolute left-0 top-0 h-full w-72 bg-white dark:bg-gray-900 shadow-lg transform -translate-x-full transition-transform">
+            <div class="p-6 flex flex-col justify-between h-full">
+                <div>
+                    <div class="flex items-center justify-between">
+                        <a href="#hero" class="text-xl font-bold">Jorsen</a>
+                        <button id="mobileClose" class="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-800">✕</button>
+                    </div>
 
-    <!-- Education Section -->
-    <section id="education" class="max-w-3xl mx-auto my-16 p-6 bg-white rounded shadow slide-up">
-        <h2 class="text-2xl font-bold mb-4">Education & Certifications</h2>
-        <p class="mb-2">🎓 STI College – Bachelor of Science in Information Technology (2018 – 2022)</p>
-        <p>🏅 Most Improving Developer – 2021 (awarded by Archicoders)</p>
-    </section>
+                    <nav class="mt-8 flex flex-col gap-4">
+                        <a class="mobile-link text-gray-700 dark:text-gray-200 hover:text-primary" href="#about">About</a>
+                        <a class="mobile-link text-gray-700 dark:text-gray-200 hover:text-primary" href="#projects">Projects</a>
+                        <a class="mobile-link text-gray-700 dark:text-gray-200 hover:text-primary" href="#experience">Experience</a>
+                        <a class="mobile-link text-gray-700 dark:text-gray-200 hover:text-primary" href="#testimonials">Testimonials</a>
+                        <a class="mobile-link text-gray-700 dark:text-gray-200 hover:text-primary" href="#education">Education</a>
+                        <a class="mobile-link text-gray-700 dark:text-gray-200 hover:text-primary" href="#contact">Contact</a>
+                    </nav>
+                </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="max-w-3xl mx-auto my-16 p-6 bg-white rounded shadow fade-in">
-        <h2 class="text-2xl font-bold mb-4">Contact</h2>
-        <p class="mb-2">Email: [Use contact form below]</p>
-        <p class="mb-4">LinkedIn: <a href="https://linkedin.com/in/jorsenmejia" class="text-blue-600 underline">linkedin.com/in/jorsenmejia</a></p>
-        <form class="space-y-4">
-            <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-2 border border-gray-300 rounded">
-            <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-2 border border-gray-300 rounded">
-            <textarea name="message" placeholder="Your Message" required class="w-full px-4 py-2 border border-gray-300 rounded"></textarea>
-            <button type="submit" class="bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 transition">Send Message</button>
-        </form>
-    </section>
+                <div>
+                    <button id="mobileThemeToggle" class="w-full px-3 py-2 rounded bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+          <span class="theme-toggle-icon">🌙</span>
+          <span class="ml-2">Toggle Theme</span>
+        </button>
+                </div>
+            </div>
+        </aside>
+    </div>
 
-    <footer class="text-center py-6 text-sm text-gray-500">
-        <p>&copy; 2025 Jorsen Mejia. All rights reserved.</p>
-    </footer>
+    <!-- MAIN (shifted on desktop) -->
+    <main class="min-h-screen md:ml-64">
+        <!-- HERO / ABOUT -->
+        <section id="hero" class="max-w-6xl mx-auto px-6 pt-24 pb-8 reveal">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold mb-3">Hi — I’m Jorsen Mejia</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Fullstack WordPress Developer. I build performant, accessible, and beautiful websites.
+                </p>
+            </div>
+        </section>
 
-    <script>
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
+        <section id="about" class="max-w-6xl mx-auto px-6 pb-12 reveal">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow p-6">
+                <h2 class="text-2xl font-bold mb-3">About Me</h2>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    I’m a passionate WordPress Web Developer based in Cavite, Philippines with over 7 years of experience. I specialize in high-performance, scalable websites using HTML, CSS, JavaScript, PHP and WordPress.
+                </p>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
+                <div class="grid grid-cols-2 gap-4">
+                    <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>HTML, CSS, JavaScript, PHP</li>
+                        <li>WordPress, Webflow</li>
+                        <li>Elementor, Divi, Oxygen</li>
+                    </ul>
+                    <ul class="list-disc pl-5 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>SEO, UX/UI, Page Speed Optimization</li>
+                        <li>Performance & Accessibility</li>
+                        <li>Custom themes & plugins</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-        document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
-            el.classList.add('opacity-0', 'translate-y-6', 'transition-all', 'duration-700');
-            observer.observe(el);
-        });
-    </script>
+        <!-- PROJECTS -->
+        <section id="projects" class="max-w-6xl mx-auto px-6 pb-12 reveal">
+            <div class="mb-8 text-center">
+                <h2 class="text-3xl font-bold">Projects</h2>
+                <p class="text-gray-600 dark:text-gray-300">Selected projects and case studies</p>
+            </div>
+
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Habbi -->
+                <article class="card bg-white dark:bg-gray-800 rounded-2xl shadow p-6 reveal">
+                    <h3 class="text-xl font-semibold mb-1">🔹 Habbi</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Role: Developer (2022)</p>
+                    <p class="text-gray-700 dark:text-gray-300">WordPress-powered site for a health-related brand.</p>
+                </article>
+
+                <!-- Abble Health -->
+                <article class="card bg-white dark:bg-gray-800 rounded-2xl shadow p-6 reveal">
+                    <h3 class="text-xl font-semibold mb-1">🔹 Abble Health</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Role: Developer (2022)</p>
+                    <p class="text-gray-700 dark:text-gray-300">Collaborated with Linkage Web Development on a responsive, mobile-first site.</p>
+                </article>
+
+                <!-- Htabl -->
+                <article class="card bg-white dark:bg-gray-800 rounded-2xl shadow p-6 reveal">
+                    <h3 class="text-xl font-semibold mb-1">🔹 Htabl</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Dec 2022 - Present</p>
+                </article>
+
+                <!-- The DIY Listing -->
+                <article class="card bg-white dark:bg-gray-800 rounded-2xl shadow p-6 reveal">
+                    <h3 class="text-xl font-semibold mb-1">🔹 The DIY Listing</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Nov 2022 - Present</p>
+                </article>
+
+                <!-- DLTC -->
+                <article class="card bg-white dark:bg-gray-800 rounded-2xl shadow p-6 reveal">
+                    <h3 class="text-xl font-semibold mb-1">🔹 DLTC Corporation</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Dec 2023 - Jan 2024</p>
+                    <a href="https://dltccorporation.com/" target="_blank" rel="noopener" class="text-primary hover:underline text-sm">Visit Site</a>
+                </article>
+
+                <!-- Lachic -->
+                <article class="card bg-white dark:bg-gray-800 rounded-2xl shadow p-6 reveal">
+                    <h3 class="text-xl font-semibold mb-1">🔹 Lachic</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Oct 2022 - Dec 2022</p>
+                </article>
+
+                <!-- Rockwells -->
+                <article class="card bg-white dark:bg-gray-800 rounded-2xl shadow p-6 reveal">
+                    <h3 class="text-xl font-semibold mb-1">🔹 Rockwells</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Nov 2022 - Dec 2022</p>
+                </article>
+
+                <!-- Touché Studio -->
+                <article class="card bg-white dark:bg-gray-800 rounded-2xl shadow p-6 reveal">
+                    <h3 class="text-xl font-semibold mb-1">🔹 Touché Studio</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Jan 2022 - Feb 2022</p>
+                    <a href="https://touchestudio.com/" target="_blank" rel="noopener" class="text-primary hover:underline text-sm">Visit Site</a>
+                </article>
+
+                <!-- Custom Dynamic Map -->
+                <article class="card bg-white dark:bg-gray-800 rounded-2xl shadow p-6 reveal">
+                    <h3 class="text-xl font-semibold mb-1">🔹 Custom Dynamic Map</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Sep 2021</p>
+                    <p class="text-gray-700 dark:text-gray-300">Built using Custom Post Type & ACF.</p>
+                </article>
+
+                <!-- Gandu Massage -->
+                <article class="card bg-white dark:bg-gray-800 rounded-2xl shadow p-6 reveal">
+                    <h3 class="text-xl font-semibold mb-1">🔹 Gandu Massage</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">Jun 2019 - Jul 2019</p>
+                    <p class="text-gray-700 dark:text-gray-300">WordPress site for mobile spa & massage services.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section id="experience" class="max-w-6xl mx-auto px-6 pb-12 reveal">
+            <h2 class="text-3xl font-bold mb-6">Experience</h2>
+            <div class="grid gap-6 md:grid-cols-2">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow reveal">
+                    <h3 class="font-semibold">Website Developer — Linkage Web Development</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Oct 2023 - Present</p>
+                    <ul class="list-disc pl-5 mt-3 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Built and maintained WordPress websites using custom themes and page builders</li>
+                        <li>Front-end enhancements, performance optimization</li>
+                        <li>Launched 10+ projects with team collaboration</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow reveal">
+                    <h3 class="font-semibold">Website Developer (Contract) — Linkage Web Development</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Mar 2022 - Oct 2023</p>
+                    <ul class="list-disc pl-5 mt-3 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Plugin customization and support</li>
+                        <li>Site migrations and maintenance</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow reveal">
+                    <h3 class="font-semibold">WordPress Developer — Endsofttech Web Solutions</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Sep 2018 - Nov 2020</p>
+                    <ul class="list-disc pl-5 mt-3 text-gray-700 dark:text-gray-300 space-y-1">
+                        <li>Custom plugins and themes</li>
+                        <li>PSD to HTML conversions & QA</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" class="max-w-6xl mx-auto px-6 pb-12 reveal">
+            <h2 class="text-3xl font-bold mb-4">Education & Certifications</h2>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                <p class="font-semibold">🎓 STI College — Bachelor of Science in Information Technology (2018 – 2022)</p>
+                <p class="mt-2">🏅 Most Improving Developer – 2021 (awarded by Archicoders)</p>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="max-w-6xl mx-auto px-6 pb-28 reveal">
+            <h2 class="text-3xl font-bold mb-4">Contact</h2>
+
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+                <p class="text-gray-700 dark:text-gray-300 mb-4">Email: <a href="mailto:jorsen@example.com" class="text-primary hover:underline">jorsen@example.com</a></p>
+
+                <form class="grid gap-4">
+                    <input class="w-full px-4 py-2 rounded border border-gray-200 dark:border-gray-700 bg-transparent" placeholder="Your name" />
+                    <input class="w-full px-4 py-2 rounded border border-gray-200 dark:border-gray-700 bg-transparent" placeholder="Your email" />
+                    <textarea class="w-full px-4 py-2 rounded border border-gray-200 dark:border-gray-700 bg-transparent" rows="4" placeholder="Message"></textarea>
+                    <button class="inline-block px-6 py-2 bg-primary text-white rounded hover:bg-green-600">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <footer class="border-t border-gray-200 dark:border-gray-800 py-6 text-center text-gray-600 dark:text-gray-400">
+            © 2025 Jorsen Mejia
+        </footer>
+    </main>
 </body>
 
 </html>
